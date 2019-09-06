@@ -1,0 +1,82 @@
+/*公共样式*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.modal-dialog {
+  width: calc(100% - 100px);
+}
+.modal-body {
+  min-height: 450px;
+}
+.w60 {
+  display: inline-block;
+  width: 60px !important;
+}
+
+.w80 {
+  display: inline-block;
+  width: 80px !important;
+}
+.p18 {
+  padding: 0 18px;
+}
+.header {
+  height: 65px;
+  background: #f2f2f2;
+}
+
+.header h2 {
+  line-height: 65px;
+  margin: 0;
+  margin-left: 20px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.change-button {
+  margin: 18px 0;
+}
+
+.filter {
+  margin: 18px 0;
+}
+
+.filter > * {
+  margin-right: 12px;
+}
+
+.filter input,
+.filter button,
+.filter select {
+  height: 34px;
+}
+.table {
+  margin-bottom: 0;
+}
+
+.table-responsive {
+  flex: 1;
+  overflow-y: auto;
+}
+.size-checkboxs {
+  margin: 22px 0;
+}
+.size-checkboxs label {
+  margin-right: 22px;
+}
+.size-checkboxs label input {
+  margin-right: 8px;
+}
+.submit-table {
+  display: flex;
+  flex-direction: row-reverse;
+  clear: both;
+  margin: 22px 0 32px 0;
+}
+#cancel-table-btn,
+#submit-table-btn {
+  padding: 6px 32px;
+  margin-left: 22px;
+}
