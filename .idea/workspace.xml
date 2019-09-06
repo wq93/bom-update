@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab8d7cf3-ae0d-4161-9c38-b708961d15d0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/patternNum.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/patternNum.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patternNum.js" beforeDir="false" afterPath="$PROJECT_DIR$/patternNum.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,7 +23,7 @@
             <entry file="file://$PROJECT_DIR$/index.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="585">
-                  <caret line="30" column="53" lean-forward="true" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="53" />
+                  <caret line="30" column="37" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
                   <folding>
                     <element signature="e#1060#1067#0" expanded="true" />
                   </folding>
@@ -39,14 +38,15 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/patternNum.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="814">
-                  <caret line="345" column="2" selection-start-line="345" selection-start-column="2" selection-end-line="345" selection-end-column="2" />
+                <state relative-caret-position="824">
+                  <caret line="108" column="14" lean-forward="true" selection-start-line="108" selection-start-column="14" selection-end-line="108" selection-end-column="14" />
                   <folding>
+                    <element signature="n#!!block;n#renderThead#0" />
                     <element signature="n#!!block;n#renderTbody#0" />
                     <element signature="n#!!block;n#computeSize#0" />
+                    <element signature="n#!!block;n#formatSubmitData#0" />
                     <element signature="e#9568#9728#0" />
                     <element signature="e#9779#10478#0" />
-                    <element signature="n#!!block;n#fetchTableData#0" />
                     <element signature="e#11325#11976#0" />
                     <element signature="e#11380#11458#0" />
                     <element signature="n#!!block;n#compareElement#0" />
@@ -58,7 +58,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/patternNum.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="649">
+                <state relative-caret-position="794">
                   <caret line="59" column="10" lean-forward="true" selection-start-line="59" selection-start-column="10" selection-end-line="59" selection-end-column="10" />
                 </state>
               </provider>
@@ -81,6 +81,9 @@
       <find>itemFir</find>
       <find>console</find>
       <find>get</find>
+      <find>size-checkboxs</find>
+      <find>data-cm</find>
+      <find>px</find>
     </findStrings>
     <replaceStrings>
       <replace>renderThead</replace>
@@ -161,12 +164,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1567752224925</updated>
-      <workItem from="1567752226990" duration="6330000" />
+      <workItem from="1567752226990" duration="10375000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6330000" />
+    <option name="totallyTimeSpent" value="10375000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-421" y="-1440" width="2560" height="1440" extended-state="0" />
@@ -195,33 +198,34 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/patternNum.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="649">
-          <caret line="59" column="10" lean-forward="true" selection-start-line="59" selection-start-column="10" selection-end-line="59" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="585">
-          <caret line="30" column="53" lean-forward="true" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="53" />
+          <caret line="30" column="37" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
           <folding>
             <element signature="e#1060#1067#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/patternNum.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="794">
+          <caret line="59" column="10" lean-forward="true" selection-start-line="59" selection-start-column="10" selection-end-line="59" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/patternNum.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="814">
-          <caret line="345" column="2" selection-start-line="345" selection-start-column="2" selection-end-line="345" selection-end-column="2" />
+        <state relative-caret-position="824">
+          <caret line="108" column="14" lean-forward="true" selection-start-line="108" selection-start-column="14" selection-end-line="108" selection-end-column="14" />
           <folding>
+            <element signature="n#!!block;n#renderThead#0" />
             <element signature="n#!!block;n#renderTbody#0" />
             <element signature="n#!!block;n#computeSize#0" />
+            <element signature="n#!!block;n#formatSubmitData#0" />
             <element signature="e#9568#9728#0" />
             <element signature="e#9779#10478#0" />
-            <element signature="n#!!block;n#fetchTableData#0" />
             <element signature="e#11325#11976#0" />
             <element signature="e#11380#11458#0" />
             <element signature="n#!!block;n#compareElement#0" />
