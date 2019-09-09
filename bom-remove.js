@@ -32,6 +32,6 @@
   // 点击确认删除按钮
   $('#submit-remove-table-btn').click(function () {
     // 发送删除请求
-
+    console.log('submit-remove-table-btn');
   })
 })();

@@ -4,7 +4,7 @@
   var sizeArr = [ 'XS', 'S', 'M', 'L', 'XL', 'XXL', '3XL', '4XL', '5XL', '6XL', '7XL', '8XL', '9XL' ]
   var initTr = '';
 
-// 设置表头 && 根据头部生成一个空行以便添加
+  // 设置表头 && 根据头部生成一个空行以便添加
   function renderThead(data) {
     initTr = ''
     var itemFir = data[ 0 ];
@@ -53,7 +53,7 @@
     $('#size-update-table-thead').html(theadStart + theadMiddle + theadEnd)
   }
 
-// 设置表单体
+  // 设置表单体
   function renderTbody(data) {
     var trArr = data;
     var tbodyHtml = '';
@@ -93,7 +93,13 @@
     $('#size-update-table-tbody').html(tbodyHtml)
   };
 
-// 渲染勾选框
+  // 渲染表格
+  function renderTable(data) {
+    renderThead(data);
+    renderTbody(data);
+  }
+
+  // 渲染勾选框
   function renderSizecheckboxs(data) {
     var cListFir = data.item[ 0 ];
     var basicSize = cListFir.size_base;
@@ -111,7 +117,7 @@
     $('#sizeUpdateModal .size-checkboxs').html(strHtml);
   }
 
-// 根据跳码计算尺码
+  // 根据跳码计算尺码
   function computeSize($target) {
     var currentSize = $($target).attr('data-size');
     if (compareElement({ basicSize: basicSizeCode, currentSize: currentSize })) {
@@ -127,7 +133,7 @@
     }
   }
 
-// 获取保持数据
+  // 获取保存数据
   function formatSubmitData() {
     // 获取每一行
     var $trs = $('#sizeUpdateModal .size-item');
@@ -178,13 +184,7 @@
     return submitData;
   }
 
-// 渲染表格
-  function renderTable(data) {
-    renderThead(data);
-    renderTbody(data);
-  }
-
-// 勾选同步框
+  // 勾选同步框事件
   $("#size-update-table").on("change", ".sync-code", function (e) {
     var target = $(e.currentTarget)
     // 是否同步
@@ -206,7 +206,7 @@
     }
   })
 
-// 第一行改变单列跳码的事件
+  // 第一行改变单列跳码的事件
   $("#size-update-table").on("change", ".size-item:first .jump-code", function (e) {
     var target = $(e.currentTarget)
     // *********根据是否同步跳码设置同列尺码*********
@@ -238,7 +238,7 @@
     }
   })
 
-// 非第一行改变单列跳码的事件
+  // 非第一行改变单列跳码的事件
   $("#size-update-table").on("change", ".size-item:not(:first) .jump-code", function (e) {
     var target = $(e.currentTarget)
     // 改变这一行的码
@@ -252,7 +252,7 @@
   })
 
 
-// 改变基码的事件
+  // 改变基码的事件
   $("#size-update-table").on("change", ".basic-code", function (e) {
     var target = $(e.currentTarget)
     // 获取本行tr
@@ -279,18 +279,18 @@
     }, 0)
   });
 
-// 添加一行
+  // 点击添加一行事件
   $('#size-update-add-tr').click(function () {
     $('#size-update-table-tbody').append(initTr)
   })
 
-// 删除
+  // 点击删除一行事件
   $("#size-update-table").on("click", ".delete-size-item", function (e) {
     var target = $(e.currentTarget);
     target.parents('tr.size-item').remove();
   })
 
-// 同步勾选框误差
+  // 同步勾选框误差
   $("#size-update-table").on("change", ".sync-mistake", function (e) {
     var target = $(e.currentTarget);
     // 是否同步
@@ -300,7 +300,7 @@
     }
   })
 
-// 同步误差
+  // 同步误差
   $("#size-update-table").on("change", ".mistake-code:first", function (e) {
     var target = $(e.currentTarget);
     // 是否同步
@@ -310,7 +310,7 @@
     }
   })
 
-// 提交事件
+  // 提交事件
   $("#submit-update-table-btn").click(function (e) {
     $.ajax({
       type: "POST",
@@ -332,7 +332,7 @@
 
   });
 
-// 勾选尺码复选框事件
+  // 勾选尺码复选框事件
   $('#sizeUpdateModal .size-checkboxs').on("change", ".size-checkbox", function (e) {
 
     var formatSubmitList = formatSubmitData();
@@ -355,12 +355,12 @@
     $('#sizeUpdateModal').modal('show')
   });
 
-// 点击按钮关闭弹框事件
+  // 点击按钮关闭弹框事件
   $('.size-update-modal-close').click(function () {
     $('#sizeUpdateModal').modal('hide')
   });
 
-// 获取表格数据
+  // 获取表格数据
   function fetchTableData(id) {
     $.ajax({
       type: "GET",
@@ -478,7 +478,7 @@
     });
   }
 
-// 比较两个元素的位置
+  // 比较两个尺码位置的先后顺序
   function compareElement(obj) {
     var basicSize = obj.basicSize;
     var currentSize = obj.currentSize;
