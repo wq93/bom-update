@@ -60,9 +60,24 @@
   flex: 1;
   overflow-y: auto;
 }
-.size-checkboxs {
-  margin: 22px 0;
+.table-header {
+  display: flex;
 }
+.table-header .size-checkboxs {
+  flex: 1;
+}
+
+.table-header .add-tr-wrap {
+  display: inline-block;
+  width: 60px;
+  text-align: center;
+}
+
+.add-tr-wrap,
+.size-checkboxs {
+  margin: 16px 0;
+}
+
 .size-checkboxs label {
   margin-right: 22px;
 }

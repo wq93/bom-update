@@ -1,5 +1,4 @@
 // 假设基码
-var basicSize = 0;
 var basicSizeCode = '';
 var sizeArr = [ 'XS', 'S', 'M', 'L', 'XL', 'XXL', '3XL', '4XL', '5XL', '6XL', '7XL', '8XL', '9XL' ]
 var initTr = '';
@@ -62,24 +61,24 @@ function renderTbody(data) {
     var trItemCList = trItem.cList;
     tbodyHtml += `<tr class='size-item'>
               <td>
-                <input type="text" value=${ trItem.part } name="" class='w80 part'>
+                <input type="text" value="${ trItem.part }" name="" class='w80 part'>
               </td>
               <td>
-                <input type="text" value=${ trItem.metering_type } name="" class='w80 metering-type'>
+                <input type="text" value="${ trItem.metering_type }" name="" class='w80 metering-type'>
               </td>
               <td>
-                <input type="number" step="0.01" data-size-base=${ trItem.size_base } value=${ trItem.size_base_value } name="" class='w60 basic-code'>
+                <input type="number" step="0.01" data-size-base="${ trItem.size_base }" value="${ trItem.size_base_value }" name="" class='w60 basic-code'>
               </td>`
     // 循环跳码模块
     for (var j = 0; j < trItemCList.length; j++) {
       var cListItem = trItemCList[ j ];
       // 最后一个不需要跳码列
       if (j === trItemCList.length - 1) {
-        tbodyHtml += ` <td class="${ cListItem.cm === basicSizeCode ? 'basic-size-td' : '' }" data-last-cm=${ cListItem.cm }>${ cListItem.value || '' }</td>`
+        tbodyHtml += ` <td class="${ cListItem.cm === basicSizeCode ? 'basic-size-td' : '' }" data-last-cm="${ cListItem.cm }">${ cListItem.value || '' }</td>`
       } else {
         tbodyHtml += ` <td class="${ cListItem.cm === basicSizeCode ? 'basic-size-td' : '' }">${ cListItem.value || '' }</td>
               <td>
-                <input type="number" step="0.01" value="${ cListItem.tm }" name="" class='w60 jump-code' data-index=${ i } data-size=${ cListItem.cm }>
+                <input type="number" step="0.01" value="${ cListItem.tm }" name="" class='w60 jump-code' data-index="${ i }" data-size="${ cListItem.cm }">
               </td>`
       }
     }
@@ -269,13 +268,18 @@ $("#size-table").on("change", ".size-item:not(:first) .jump-code", function (e) 
 // 改变基码的事件
 $("#size-table").on("change", ".basic-code", function (e) {
   var target = $(e.currentTarget)
+  // 获取本行tr
+  var $parents = target.parents('tr.size-item');
+
   // 获取这行的跳码框
-  var jumpCodes = target.parents('tr.size-item').find('.jump-code');
+  var jumpCodes = $parents.find('.jump-code');
+
+  // 改变这行的基码列
+  $parents.find('.basic-size-td').html(target.val())
+
   for (var i = 0; i < jumpCodes.length; i++) {
     // 获取父节点的上一个兄弟节点
     var $jumpCode = $(jumpCodes[ i ]);
-    // 改变这行的基码列
-    $jumpCode.parents('tr.size-item').find('.basic-size-td').html(target.val())
     computeSize($jumpCode)
   }
 
@@ -283,8 +287,6 @@ $("#size-table").on("change", ".basic-code", function (e) {
     for (var i = 0; i < jumpCodes.length; i++) {
       // 获取父节点的上一个兄弟节点
       var $jumpCode = $(jumpCodes[ i ]);
-      // 改变这行的基码列
-      $jumpCode.parents('tr.size-item').find('.basic-size-td').html(target.val())
       computeSize($jumpCode)
     }
   }, 0)
@@ -359,6 +361,17 @@ $('.size-checkboxs').on("change", ".size-checkbox", function (e) {
 
   console.log(formatSubmitList, 'formatSubmitList');
   renderTable(formatSubmitList);
+});
+
+// 点击按钮打开弹框事件
+$('.btn-lg').click(function () {
+  $('#sizeUpdateModal').modal('show')
+  fetchTableData();
+});
+
+// 点击按钮关闭弹框事件
+$('.size-modal-close').click(function () {
+  $('#sizeUpdateModal').modal('hide')
 });
 
 // 获取表格数据
@@ -478,8 +491,6 @@ function fetchTableData(id) {
     }
   });
 }
-
-fetchTableData()
 
 // 比较两个元素的位置
 function compareElement(obj) {
