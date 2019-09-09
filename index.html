@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>BOM</title>
   <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="bom-update.css">
+  <link rel="stylesheet" href="index.css">
   <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
   <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
@@ -15,6 +15,7 @@
 
 <button class="btn btn-primary btn-lg bom-update-btn" data-toggle="modal">编辑</button>
 <button class="btn btn-primary btn-lg bom-add-btn" data-toggle="modal">添加</button>
+<button class="btn btn-primary btn-lg bom-remove-btn" data-toggle="modal">删除</button>
 
 <!-- 编辑尺码 - 模态框（Modal） -->
 <div class="modal fade" id="sizeUpdateModal" tabindex="-1" role="dialog" aria-labelledby="sizeUpdateModalLabel" aria-hidden="true">
@@ -50,7 +51,7 @@
 </div>
 
 <!-- 新增尺码 - 模态框（Modal） -->
-<div class="modal fade" id="sizeAddModal" tabindex="-1" role="dialog" aria-labelledby="sizeUpdateModalLabel" aria-hidden="true">
+<div class="modal fade" id="sizeAddModal" tabindex="-1" role="dialog" aria-labelledby="sizeAddModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -81,8 +82,40 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal -->
 </div>
+<!-- 删除尺码 -->
+<div class="modal fade" id="sizeRemoveModal" tabindex="-1" role="dialog" aria-labelledby="sizeRemoveModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close size-remove-modal-close" data-dismiss="modal" aria-hidden="true">
+          &times;
+        </button>
+        <h4 class="modal-title" id="sizeRemoveModalLabel">
+          确认要删除以下尺码？
+        </h4>
+      </div>
+      <div class="modal-body">
+        <div class="table-responsive">
+          <table class="table table-bordered  table-striped" id="size-remove-table">
+            <thead>
+              <tr>
+                <th>尺码部位</th>
+                <th>测量方法</th>
+              </tr>
+            </thead>
+            <tbody id="size-remove-table-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="submit-remove-table-btn" class="btn btn-info">确认删除</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal -->
+</div>
 
 <script src='bom-update.js'></script>
 <script src='bom-add.js'></script>
+<script src='bom-remove.js'></script>
 </body>
 </html>

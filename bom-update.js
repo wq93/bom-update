@@ -349,7 +349,7 @@
     renderTable(formatSubmitList);
   });
 
-// 点击按钮打开弹框事件
+  // 点击按钮打开弹框事件
   $('.bom-update-btn').click(function () {
     fetchTableData();
     $('#sizeUpdateModal').modal('show')
