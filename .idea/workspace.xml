@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ab8d7cf3-ae0d-4161-9c38-b708961d15d0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/bom-add.js" beforeDir="false" afterPath="$PROJECT_DIR$/bom-add.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bom-remove.js" beforeDir="false" afterPath="$PROJECT_DIR$/bom-remove.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bom-update.js" beforeDir="false" afterPath="$PROJECT_DIR$/bom-update.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -19,14 +18,36 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="768">
-                  <caret line="105" column="46" selection-start-line="105" selection-start-column="23" selection-end-line="105" selection-end-column="46" />
+                <state relative-caret-position="928">
+                  <caret line="110" column="57" lean-forward="true" selection-start-line="110" selection-start-column="57" selection-end-line="110" selection-end-column="57" />
                   <folding>
                     <element signature="n#div#0;n#body#0;n#html#0;n#!!top" />
                     <element signature="n#div#1;n#body#0;n#html#0;n#!!top" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/bom-add.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="771">
+                  <caret line="305" column="7" selection-start-line="305" selection-start-column="7" selection-end-line="305" selection-end-column="7" />
+                  <folding>
+                    <element signature="e#212#286#0" />
+                    <element signature="e#345#2527#0" />
+                    <element signature="e#2574#2623#0" />
+                    <element signature="e#2671#3307#0" />
+                    <element signature="e#3351#4905#0" />
+                    <element signature="e#5059#7727#0" />
+                    <element signature="e#7779#8049#0" />
+                    <element signature="e#8633#9050#0" />
+                    <element signature="e#9150#9607#0" />
+                    <element signature="e#9665#9729#0" />
+                    <element signature="e#9796#9838#0" />
                   </folding>
                 </state>
               </provider>
@@ -36,21 +57,18 @@
       </split-first>
       <split-second>
         <leaf>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/bom-update.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1033">
-                  <caret line="480" column="18" lean-forward="true" selection-start-line="480" selection-start-column="5" selection-end-line="480" selection-end-column="18" />
+                <state relative-caret-position="803">
+                  <caret line="378" column="6" selection-start-line="378" selection-start-column="6" selection-end-line="378" selection-end-column="6" />
                   <folding>
-                    <element signature="e#220#2184#0" />
-                    <element signature="e#2222#3892#0" />
+                    <element signature="n#style#0;n#p#0;n#td#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#p#0;n#td#0;n#!!top" expanded="true" />
                     <element signature="e#3939#4476#0" />
-                    <element signature="e#4520#5130#0" />
                     <element signature="e#5170#6631#0" />
-                    <element signature="e#6788#7326#0" />
-                    <element signature="e#7426#8317#0" />
-                    <element signature="e#8424#8702#0" />
-                    <element signature="e#8782#9327#0" />
+                    <element signature="e#7362#10024#0" />
+                    <element signature="e#10076#10346#0" />
                     <element signature="e#9511#9592#0" />
                     <element signature="e#9673#9891#0" />
                     <element signature="e#9975#10173#0" />
@@ -58,35 +76,6 @@
                     <element signature="e#10700#11191#0" />
                     <element signature="e#11248#11309#0" />
                     <element signature="e#11375#11416#0" />
-                    <element signature="e#11458#13890#0" />
-                    <element signature="e#13934#14190#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/bom-add.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="937">
-                  <caret line="310" column="11" lean-forward="true" selection-start-line="310" selection-start-column="11" selection-end-line="310" selection-end-column="11" />
-                  <folding>
-                    <element signature="e#220#2184#0" />
-                    <element signature="e#1090#1830#0" />
-                    <element signature="e#2280#2332#0" />
-                    <element signature="e#4517#5127#0" />
-                    <element signature="e#5167#6625#0" />
-                    <element signature="e#7031#7618#0" />
-                    <element signature="e#7717#8653#0" />
-                    <element signature="e#8759#9057#0" />
-                    <element signature="e#9136#9721#0" />
-                    <element signature="e#9907#9994#0" />
-                    <element signature="e#10074#10268#0" />
-                    <element signature="e#10266#10426#0" />
-                    <element signature="e#10486#10871#0" />
-                    <element signature="e#10953#11372#0" />
-                    <element signature="e#11627#14059#0" />
-                    <element signature="e#14103#14359#0" />
                   </folding>
                 </state>
               </provider>
@@ -114,8 +103,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>compareElement</find>
-      <find>tableData</find>
       <find>pattern-number-checkbox</find>
       <find>setThead</find>
       <find>setTbody</find>
@@ -142,8 +129,10 @@
       <find>renderTbody</find>
       <find>renderTable</find>
       <find>console</find>
-      <find>size-update-table</find>
       <find>renderSizecheckboxs</find>
+      <find>size-update-table</find>
+      <find>computeSize</find>
+      <find>setItemSize</find>
     </findStrings>
     <replaceStrings>
       <replace>renderThead</replace>
@@ -163,8 +152,8 @@
         <option value="$PROJECT_DIR$/patternNum.css" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/bom-remove.js" />
-        <option value="$PROJECT_DIR$/bom-update.js" />
         <option value="$PROJECT_DIR$/bom-add.js" />
+        <option value="$PROJECT_DIR$/bom-update.js" />
       </list>
     </option>
   </component>
@@ -231,12 +220,12 @@
       <option name="presentableId" value="Default" />
       <updated>1567752224925</updated>
       <workItem from="1567752226990" duration="10665000" />
-      <workItem from="1567857143446" duration="13326000" />
+      <workItem from="1567857143446" duration="19708000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23991000" />
+    <option name="totallyTimeSpent" value="30373000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-421" y="-1440" width="2560" height="1440" extended-state="0" />
@@ -272,17 +261,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="768">
-          <caret line="105" column="46" selection-start-line="105" selection-start-column="23" selection-end-line="105" selection-end-column="46" />
-          <folding>
-            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bom-remove.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="416">
@@ -290,20 +268,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="928">
+          <caret line="110" column="57" lean-forward="true" selection-start-line="110" selection-start-column="57" selection-end-line="110" selection-end-column="57" />
+          <folding>
+            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bom-add.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="771">
+          <caret line="305" column="7" selection-start-line="305" selection-start-column="7" selection-end-line="305" selection-end-column="7" />
+          <folding>
+            <element signature="e#212#286#0" />
+            <element signature="e#345#2527#0" />
+            <element signature="e#2574#2623#0" />
+            <element signature="e#2671#3307#0" />
+            <element signature="e#3351#4905#0" />
+            <element signature="e#5059#7727#0" />
+            <element signature="e#7779#8049#0" />
+            <element signature="e#8633#9050#0" />
+            <element signature="e#9150#9607#0" />
+            <element signature="e#9665#9729#0" />
+            <element signature="e#9796#9838#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/bom-update.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1033">
-          <caret line="480" column="18" lean-forward="true" selection-start-line="480" selection-start-column="5" selection-end-line="480" selection-end-column="18" />
+        <state relative-caret-position="803">
+          <caret line="378" column="6" selection-start-line="378" selection-start-column="6" selection-end-line="378" selection-end-column="6" />
           <folding>
-            <element signature="e#220#2184#0" />
-            <element signature="e#2222#3892#0" />
+            <element signature="n#style#0;n#p#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#td#0;n#!!top" expanded="true" />
             <element signature="e#3939#4476#0" />
-            <element signature="e#4520#5130#0" />
             <element signature="e#5170#6631#0" />
-            <element signature="e#6788#7326#0" />
-            <element signature="e#7426#8317#0" />
-            <element signature="e#8424#8702#0" />
-            <element signature="e#8782#9327#0" />
+            <element signature="e#7362#10024#0" />
+            <element signature="e#10076#10346#0" />
             <element signature="e#9511#9592#0" />
             <element signature="e#9673#9891#0" />
             <element signature="e#9975#10173#0" />
@@ -311,33 +317,6 @@
             <element signature="e#10700#11191#0" />
             <element signature="e#11248#11309#0" />
             <element signature="e#11375#11416#0" />
-            <element signature="e#11458#13890#0" />
-            <element signature="e#13934#14190#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bom-add.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="937">
-          <caret line="310" column="11" lean-forward="true" selection-start-line="310" selection-start-column="11" selection-end-line="310" selection-end-column="11" />
-          <folding>
-            <element signature="e#220#2184#0" />
-            <element signature="e#1090#1830#0" />
-            <element signature="e#2280#2332#0" />
-            <element signature="e#4517#5127#0" />
-            <element signature="e#5167#6625#0" />
-            <element signature="e#7031#7618#0" />
-            <element signature="e#7717#8653#0" />
-            <element signature="e#8759#9057#0" />
-            <element signature="e#9136#9721#0" />
-            <element signature="e#9907#9994#0" />
-            <element signature="e#10074#10268#0" />
-            <element signature="e#10266#10426#0" />
-            <element signature="e#10486#10871#0" />
-            <element signature="e#10953#11372#0" />
-            <element signature="e#11627#14059#0" />
-            <element signature="e#14103#14359#0" />
           </folding>
         </state>
       </provider>

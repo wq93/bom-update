@@ -1,6 +1,7 @@
 (function () {
   // 假设基码
   var basicSizeCode = '';
+  var basicSizeIndex = 0;
   var sizeArr = [ 'XS', 'S', 'M', 'L', 'XL', 'XXL', '3XL', '4XL', '5XL', '6XL', '7XL', '8XL', '9XL' ]
   var initTr = '';
 
@@ -13,7 +14,10 @@
                   <th>测量方法</th>
                   <th >基码（${ itemFir.size_base }）</th>
                   `
-    var theadEnd = `<th>误差 <input type="checkbox" class="sync-mistake">同步</th>
+    var theadEnd = `<th>误差 
+                    <label>
+                      <input type="checkbox" class="sync-mistake">同步
+                    </label></th>
               <th>操作</th></tr>`
     // 空行
     initTr += `<tr class='size-item'>
@@ -30,13 +34,21 @@
     var jumpArr = itemFir.cList
     for (var i = 0; i < jumpArr.length; i++) {
       var jumpItem = jumpArr[ i ]
+      if (jumpItem.cm === basicSizeCode) {
+        basicSizeIndex = i;
+      }
       // 最后一个不需要跳码列
       if (i === jumpArr.length - 1) {
         theadMiddle += `<th>${ jumpItem.cm }</th>`
         initTr += ` <td class="${ jumpItem.cm === basicSizeCode ? 'basic-size-td' : '' }" data-last-cm=${ jumpItem.cm }"></td>`
       } else {
-        theadMiddle += `<th class=${ jumpItem.cm }>${ jumpItem.cm }</th>
-              <th>跳码 <input type="checkbox" class="sync-code sync-jump-code-${ jumpItem.cm }" data-size="${ jumpItem.cm }">同步</th>`
+        theadMiddle += `<th class="${ jumpItem.cm }">${ jumpItem.cm }</th>
+              <th>
+                跳码
+                <label>
+                  <input type="checkbox" class="sync-code sync-jump-code-${ jumpItem.cm }" data-size="${ jumpItem.cm }">同步
+                </label>
+              </th>`
         initTr += ` <td class="${ jumpItem.cm === basicSizeCode ? 'basic-size-td' : '' }"></td>
               <td>
                 <input type="number" step="0.01" value="" name="" class='w60 jump-code' data-size="${ jumpItem.cm }">
@@ -44,7 +56,7 @@
       }
     }
     initTr += `<td>
-                ±<input type="number"  step="0.01" value="" name="" class='w60 mistake-code'>
+                <p style='70px'>±<input type="number"  step="0.01" value="" name="" class='w60 mistake-code'></p>
               </td>
               <td>
                 <button type="button" class="btn btn-danger delete-size-item">删除</button>
@@ -84,7 +96,7 @@
         }
       }
       tbodyHtml += `<td>
-                ±<input type="number" step="0.01"value="${ trItem.error }" name="" class='w60 mistake-code'>
+                <p style='width: 70px'>±<input type="number" step="0.01"value="${ trItem.error }" name="" class='w60 mistake-code'></p>
               </td>
               <td>
                 <button type="button" class="btn btn-danger delete-size-item">删除</button>
@@ -184,181 +196,6 @@
     return submitData;
   }
 
-  // 勾选同步框事件
-  $("#size-update-table").on("change", ".sync-code", function (e) {
-    var target = $(e.currentTarget)
-    // 是否同步
-    var isSync = target.is(':checked');
-    // 找到类别
-    var sizeType = target.attr('data-size')
-    if (isSync) {
-      // 获取当前列的跳码框
-      var columnJumpCodes = $('#size-update-table .jump-code[data-size=' + sizeType + ']')
-      columnJumpCodes.val($(columnJumpCodes[ 0 ]).val())
-      // 改变所有的码
-      // 获取所有的跳码框并设置尺码
-      var $JumpCode = $('#size-update-table .jump-code');
-      for (var i = 0; i < $JumpCode.length; i++) {
-        // 获取父节点的上一个兄弟节点
-        var $jumpCode = $($JumpCode[ i ]);
-        computeSize($jumpCode)
-      }
-    }
-  })
-
-  // 第一行改变单列跳码的事件
-  $("#size-update-table").on("change", ".size-item:first .jump-code", function (e) {
-    var target = $(e.currentTarget)
-    // *********根据是否同步跳码设置同列尺码*********
-    // 找到类别
-    var sizeType = target.attr('data-size')
-    // 是否同步
-    var isSync = $('#size-update-table .sync-jump-code-' + sizeType).is(':checked');
-    if (isSync) {
-      // 获取当前列的跳码框
-      var columnJumpCodes = $('#size-update-table .jump-code[data-size=' + sizeType + ']')
-      columnJumpCodes.val(target.val())
-      // 改变所有的码
-      // 获取所有的跳码框并设置尺码
-      var $JumpCode = $('#size-update-table .jump-code');
-      for (var i = 0; i < $JumpCode.length; i++) {
-        // 获取父节点的上一个兄弟节点
-        var $jumpCode = $($JumpCode[ i ]);
-        computeSize($jumpCode)
-      }
-    } else {
-      // 改变这一行的码
-      // 获取这行所有的跳码框并设置尺码
-      var $JumpCode = target.parents('tr.size-item').find('.jump-code');
-      for (var i = 0; i < $JumpCode.length; i++) {
-        // 获取父节点的上一个兄弟节点
-        var $jumpCode = $($JumpCode[ i ]);
-        computeSize($jumpCode)
-      }
-    }
-  })
-
-  // 非第一行改变单列跳码的事件
-  $("#size-update-table").on("change", ".size-item:not(:first) .jump-code", function (e) {
-    var target = $(e.currentTarget)
-    // 改变这一行的码
-    // 获取这行所有的跳码框并设置尺码
-    var $JumpCode = target.parents('tr.size-item').find('.jump-code');
-    for (var i = 0; i < $JumpCode.length; i++) {
-      // 获取父节点的上一个兄弟节点
-      var $jumpCode = $($JumpCode[ i ]);
-      computeSize($jumpCode)
-    }
-  })
-
-
-  // 改变基码的事件
-  $("#size-update-table").on("change", ".basic-code", function (e) {
-    var target = $(e.currentTarget)
-    // 获取本行tr
-    var $parents = target.parents('tr.size-item');
-
-    // 获取这行的跳码框
-    var jumpCodes = $parents.find('.jump-code');
-
-    // 改变这行的基码列
-    $parents.find('.basic-size-td').html(target.val())
-
-    for (var i = 0; i < jumpCodes.length; i++) {
-      // 获取父节点的上一个兄弟节点
-      var $jumpCode = $(jumpCodes[ i ]);
-      computeSize($jumpCode)
-    }
-
-    setTimeout(() => {
-      for (var i = 0; i < jumpCodes.length; i++) {
-        // 获取父节点的上一个兄弟节点
-        var $jumpCode = $(jumpCodes[ i ]);
-        computeSize($jumpCode)
-      }
-    }, 0)
-  });
-
-  // 点击添加一行事件
-  $('#size-update-add-tr').click(function () {
-    $('#size-update-table-tbody').append(initTr)
-  })
-
-  // 点击删除一行事件
-  $("#size-update-table").on("click", ".delete-size-item", function (e) {
-    var target = $(e.currentTarget);
-    target.parents('tr.size-item').remove();
-  })
-
-  // 同步勾选框误差
-  $("#size-update-table").on("change", ".sync-mistake", function (e) {
-    var target = $(e.currentTarget);
-    // 是否同步
-    var isSync = $('#size-update-table .sync-mistake').is(':checked');
-    if (isSync) {
-      $('#size-update-table .mistake-code').val($($('.mistake-code')[ 0 ]).val());
-    }
-  })
-
-  // 同步误差
-  $("#size-update-table").on("change", ".mistake-code:first", function (e) {
-    var target = $(e.currentTarget);
-    // 是否同步
-    var isSync = $('#size-update-table .sync-mistake').is(':checked');
-    if (isSync) {
-      $('#size-update-table .mistake-code').val(target.val());
-    }
-  })
-
-  // 提交事件
-  $("#submit-update-table-btn").click(function (e) {
-    $.ajax({
-      type: "POST",
-      url: '/api/platemakingSizePart/addPlatemakingSizePart',
-      dataType: "json",
-      contentType: "application/json; charset=utf-8",
-      data: JSON.stringify(formatSubmitData()),
-      success: function (data) {
-        if (data.success == true) {
-
-        } else {
-
-        }
-      },
-      error: function (jqXHR) {
-        console.log(jqXHR.status);
-      }
-    });
-
-  });
-
-  // 勾选尺码复选框事件
-  $('#sizeUpdateModal .size-checkboxs').on("change", ".size-checkbox", function (e) {
-
-    var formatSubmitList = formatSubmitData();
-    // 获取勾选的尺码
-    var checkSizeDom = $('#sizeUpdateModal .size-checkboxs input:checked');
-    var checkSizeList = $.map(checkSizeDom, item => $(item).attr('data-cm'));
-    $.map(formatSubmitList, item => {
-      var cList = item.cList;
-      item.cList = $.map(checkSizeList, (cItem, index) => {
-        return { px: index, tm: '', cm: cItem, value: 0 }
-      })
-    })
-
-    renderTable(formatSubmitList);
-  });
-
-  // 点击按钮打开弹框事件
-  $('.bom-update-btn').click(function () {
-    fetchTableData();
-    $('#sizeUpdateModal').modal('show')
-  });
-
-  // 点击按钮关闭弹框事件
-  $('.size-update-modal-close').click(function () {
-    $('#sizeUpdateModal').modal('hide')
-  });
 
   // 获取表格数据
   function fetchTableData(id) {
@@ -487,4 +324,183 @@
     var sort = currentIndex - basicIndex;
     return sort >= 0
   }
+
+  // 设置对应的尺码
+  // $JumpCode - 跳码节点
+  function setItemSize($JumpCode) {
+    // 情况一: 尺码在基码右边
+    for (var i = basicSizeIndex; i < $JumpCode.length; i++) {
+      var $jumpCode = $($JumpCode[ i ]);
+      computeSize($jumpCode)
+    }
+
+    // 情况二: 尺码在基码左边
+    for (var i = basicSizeIndex - 1; i >= 0; i--) {
+      var $jumpCode = $($JumpCode[ i ]);
+      computeSize($jumpCode)
+    }
+  }
+
+  // 勾选同步框事件
+  $("#size-update-table").on("change", ".sync-code", function (e) {
+    var target = $(e.currentTarget)
+    // 是否同步
+    var isSync = target.is(':checked');
+    // 找到类别
+    var sizeType = target.attr('data-size')
+    if (isSync) {
+      // 获取当前列的跳码框
+      var columnJumpCodes = $('#size-update-table .jump-code[data-size=' + sizeType + ']')
+      columnJumpCodes.val($(columnJumpCodes[ 0 ]).val())
+
+      // 改变所有的尺码
+      // 按每行的维度获取所有的跳码框并设置尺码
+      var $sizeItems = $('#size-update-table .size-item');
+      for (var i = 0; i < $sizeItems.length; i++) {
+        var $JumpCode = $($sizeItems[i]).find('.jump-code');
+        setItemSize($JumpCode);
+      }
+    }
+  })
+
+  // 第一行改变单列跳码的事件(当勾选了同步会更新单列的所有跳码)
+  $("#size-update-table").on("change", ".size-item:first .jump-code", function (e) {
+    var $JumpCode = [];
+    var target = $(e.currentTarget)
+    // *********根据是否同步跳码设置同列尺码*********
+    // 找到类别
+    var sizeType = target.attr('data-size')
+    // 是否同步
+    var isSync = $('#size-update-table .sync-jump-code-' + sizeType).is(':checked');
+    if (isSync) {
+      // 获取当前列的跳码框
+      var columnJumpCodes = $('#size-update-table .jump-code[data-size=' + sizeType + ']')
+      columnJumpCodes.val(target.val())
+
+      // 改变所有的尺码
+      // 按每行的维度获取所有的跳码框并设置尺码
+      var $sizeItems = $('#size-update-table .size-item');
+      for (var i = 0; i < $sizeItems.length; i++) {
+        var $JumpCode = $($sizeItems[i]).find('.jump-code');
+        setItemSize($JumpCode);
+      }
+
+    } else {
+      // 改变这一行的码
+      // 获取这行所有的跳码框并设置尺码
+      $JumpCode = target.parents('tr.size-item').find('.jump-code');
+    }
+
+    setItemSize($JumpCode)
+  })
+
+  // 非第一行改变单列跳码的事件
+  $("#size-update-table").on("change", ".size-item:not(:first) .jump-code", function (e) {
+    var target = $(e.currentTarget)
+    // 改变这一行的码
+    // 获取这行所有的跳码框并设置尺码
+
+    var $JumpCode = target.parents('tr.size-item').find('.jump-code');
+
+    setItemSize($JumpCode)
+  })
+
+
+  // 改变基码的事件
+  $("#size-update-table").on("change", ".basic-code", function (e) {
+
+    var target = $(e.currentTarget)
+    // 获取本行tr
+    var $parents = target.parents('tr.size-item');
+
+    // 获取这行的跳码框
+    var $JumpCode = $parents.find('.jump-code');
+
+    // 改变这行的基码列
+    $parents.find('.basic-size-td').html(target.val())
+
+    setItemSize($JumpCode)
+  });
+
+  // 点击添加一行事件
+  $('#size-update-add-tr').click(function () {
+    $('#size-update-table-tbody').append(initTr)
+  })
+
+  // 点击删除一行事件
+  $("#size-update-table").on("click", ".delete-size-item", function (e) {
+    var target = $(e.currentTarget);
+    target.parents('tr.size-item').remove();
+  })
+
+  // 同步勾选框误差
+  $("#size-update-table").on("change", ".sync-mistake", function (e) {
+    var target = $(e.currentTarget);
+    // 是否同步
+    var isSync = $('#size-update-table .sync-mistake').is(':checked');
+    if (isSync) {
+      $('#size-update-table .mistake-code').val($($('.mistake-code')[ 0 ]).val());
+    }
+  })
+
+  // 同步误差
+  $("#size-update-table").on("change", ".mistake-code:first", function (e) {
+    var target = $(e.currentTarget);
+    // 是否同步
+    var isSync = $('#size-update-table .sync-mistake').is(':checked');
+    if (isSync) {
+      $('#size-update-table .mistake-code').val(target.val());
+    }
+  })
+
+  // 提交事件
+  $("#submit-update-table-btn").click(function (e) {
+    $.ajax({
+      type: "POST",
+      url: '/api/platemakingSizePart/addPlatemakingSizePart',
+      dataType: "json",
+      contentType: "application/json; charset=utf-8",
+      data: JSON.stringify(formatSubmitData()),
+      success: function (data) {
+        if (data.success == true) {
+
+        } else {
+
+        }
+      },
+      error: function (jqXHR) {
+        console.log(jqXHR.status);
+      }
+    });
+
+  });
+
+  // 勾选尺码复选框事件
+  $('#sizeUpdateModal .size-checkboxs').on("change", ".size-checkbox", function (e) {
+
+    var formatSubmitList = formatSubmitData();
+    // 获取勾选的尺码
+    var checkSizeDom = $('#sizeUpdateModal .size-checkboxs input:checked');
+    var checkSizeList = $.map(checkSizeDom, item => $(item).attr('data-cm'));
+    $.map(formatSubmitList, item => {
+      var cList = item.cList;
+      item.cList = $.map(checkSizeList, (cItem, index) => {
+        return { px: index, tm: '', cm: cItem, value: 0 }
+      })
+    })
+
+    renderTable(formatSubmitList);
+  });
+
+  // 点击按钮打开弹框事件
+  $('.bom-update-btn').click(function () {
+    fetchTableData();
+    $('#sizeUpdateModal').modal('show')
+  });
+
+  // 点击按钮关闭弹框事件
+  $('.size-update-modal-close').click(function () {
+    $('#sizeUpdateModal').modal('hide')
+  });
+
 })();
