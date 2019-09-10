@@ -196,7 +196,6 @@
     return submitData;
   }
 
-
   // 获取表格数据
   function fetchTableData(id) {
     $.ajax({
@@ -341,6 +340,18 @@
     }
   }
 
+  // 按属性对object分类
+  function groupBy(objectArray, property) {
+    return objectArray.reduce(function (acc, obj) {
+      var key = obj[property];
+      if (!acc[key]) {
+        acc[key] = [];
+      }
+      acc[key].push(obj);
+      return acc;
+    }, {});
+  }
+
   // 勾选同步框事件
   $("#size-update-table").on("change", ".sync-code", function (e) {
     var target = $(e.currentTarget)
@@ -363,7 +374,7 @@
     }
   })
 
-  // 第一行改变单列跳码的事件(当勾选了同步会更新单列的所有跳码)
+  // 第一行改变单列跳码的事件(当勾选了同步会更新本列的所有跳码)
   $("#size-update-table").on("change", ".size-item:first .jump-code", function (e) {
     var $JumpCode = [];
     var target = $(e.currentTarget)
@@ -484,12 +495,29 @@
     var checkSizeList = $.map(checkSizeDom, item => $(item).attr('data-cm'));
     $.map(formatSubmitList, item => {
       var cList = item.cList;
+      var cacheMap = groupBy(cList, 'cm');
+
+      // 从之前记录中取出对应的基码和跳码
       item.cList = $.map(checkSizeList, (cItem, index) => {
-        return { px: index, tm: '', cm: cItem, value: 0 }
+        if(cacheMap[cItem]){
+          var cacheCItem = cacheMap[cItem][0];
+          return { px: index, tm: cacheCItem.tm, cm: cItem, value: cacheCItem.value };
+        }else{
+          return { px: index, tm: 0, cm: cItem, value: 0 };
+        }
       })
     })
 
     renderTable(formatSubmitList);
+
+    // 改变所有的尺码
+    // 按每行的维度获取所有的跳码框并设置尺码
+    var $sizeItems = $('#size-update-table .size-item');
+    for (var i = 0; i < $sizeItems.length; i++) {
+      var $JumpCode = $($sizeItems[i]).find('.jump-code');
+      setItemSize($JumpCode);
+    }
+
   });
 
   // 点击按钮打开弹框事件
@@ -502,5 +530,4 @@
   $('.size-update-modal-close').click(function () {
     $('#sizeUpdateModal').modal('hide')
   });
-
 })();

@@ -307,7 +307,7 @@
     }
   })
 
-  // 第一行改变单列跳码的事件(当勾选了同步会更新单列的所有跳码)
+  // 第一行改变单列跳码的事件(当勾选了同步会更新当列的所有跳码)
   $("#size-add-table").on("change", ".size-item:first .jump-code", function (e) {
     var $JumpCode = [];
     var target = $(e.currentTarget)
