@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>materials</title>
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="materials.css">
+  <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<button class="btn btn-primary btn-lg materials-update-btn" data-toggle="modal">
+  编辑
+</button>
+<button class="btn btn-primary btn-lg materials-add-btn" data-toggle="modal">
+  添加
+</button>
+<button class="btn btn-primary btn-lg materials-remove-btn" data-toggle="modal">
+  删除
+</button>
+<!-- 模态框（Modal） -->
+<div class="modal fade"
+     id="materialsModal"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="materialsModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+          &times;
+        </button>
+        <h4 class="modal-title" id="materialsModalLabel">编辑物料</h4>
+      </div>
+      <div class="modal-body">
+        <div>
+          <button type="button" class="btn btn-warning materials-add-tr">添加</button>
+        </div>
+        <table class="table table-bordered">
+          <thead>
+          <tr>
+            <th>物料分类<i>*</i>/标识</th>
+            <th>物料名称<i>*</i>/使用部位</th>
+            <th>供应商<i>*</i></th>
+            <th>属性信息</th>
+            <th>采购价<br>（元）/单位</th>
+            <th>用量<i>*</i></th>
+            <th>损耗率</th>
+            <th>操作</th>
+          </tr>
+          </thead>
+          <tbody id='materials-tbody'>
+
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        </button>
+        <button type="button" class="btn btn-primary materials-submit">
+          提交
+        </button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal -->
+</div>
+
+<!-- 删除尺码 -->
+<div class="modal fade" id="materialsRemoveModal" tabindex="-1" role="dialog" aria-labelledby="materiaRemoveModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close materia-remove-modal-close" data-dismiss="modal" aria-hidden="true">
+          &times;
+        </button>
+        <h4 class="modal-title" id="materiaRemoveModalLabel">
+          确认要删除以下物料？
+        </h4>
+      </div>
+      <div class="modal-body">
+        <div class="table-responsive">
+          <table class="table table-bordered  table-striped" id="modal-remove-table">
+            <thead>
+            <tr>
+              <th>物料编号</th>
+              <th>物料名称</th>
+            </tr>
+            </thead>
+            <tbody id="material-remove-table-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info material-remove-table-btn">确认删除</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal -->
+</div>
+<script src='./materials.js'></script>
+</body>
+</html>

@@ -4,8 +4,6 @@
     // 发送获取数据的请求
     list = [
       { part: 'part1', 'metering_type': 'metering_type1' },
-      { part: 'part2', 'metering_type': 'metering_type2' },
-      { part: 'part3', 'metering_type': 'metering_type3' },
     ]
     renderTbody(list);
   };
