@@ -85,11 +85,12 @@
       // 循环跳码模块
       for (var j = 0; j < trItemCList.length; j++) {
         var cListItem = trItemCList[ j ];
+        var isBasicSizeCode = cListItem.cm === basicSizeCode;
         // 最后一个不需要跳码列
         if (j === trItemCList.length - 1) {
-          tbodyHtml += ` <td class="${ cListItem.cm === basicSizeCode ? 'basic-size-td' : '' }" data-last-cm="${ cListItem.cm }">${ cListItem.value || '' }</td>`
+          tbodyHtml += ` <td class="${ isBasicSizeCode ? 'basic-size-td' : '' }" data-last-cm="${ cListItem.cm }">${ isBasicSizeCode ? (trItem.size_base_value || 0) : (cListItem.value || 0) }</td>`
         } else {
-          tbodyHtml += ` <td class="${ cListItem.cm === basicSizeCode ? 'basic-size-td' : '' }">${ cListItem.value || '' }</td>
+          tbodyHtml += ` <td class="${ isBasicSizeCode ? 'basic-size-td' : '' }">${ isBasicSizeCode ? (trItem.size_base_value || 0) : (cListItem.value || 0) }</td>
               <td>
                 <input type="number" step="0.01" value="${ cListItem.tm }" name="" class='w60 jump-code' data-index="${ i }" data-size="${ cListItem.cm }">
               </td>`
@@ -109,6 +110,14 @@
   function renderTable(data) {
     renderThead(data);
     renderTbody(data);
+
+    // 改变所有的尺码
+    // 按每行的维度获取所有的跳码框并设置尺码
+    var $sizeItems = $('#size-update-table .size-item');
+    for (var i = 0; i < $sizeItems.length; i++) {
+      var $JumpCode = $($sizeItems[i]).find('.jump-code');
+      setItemSize($JumpCode);
+    }
   }
 
   // 渲染勾选框
@@ -203,14 +212,15 @@
       url: '/api/templateMaterial//getId/' + id,
       dataType: "json",
       success: function (data) {
-        renderTable(data);
         renderSizecheckboxs(data);
+        renderTable(data);
       },
       error: function (jqXHR) {
         var data = {
           "code": "OK",
           "desc": "OK",
-          "item": [ {
+          "item": [
+            {
             "metering_type": "吃2",
             "cList": [ {
               "px": 0,
@@ -240,7 +250,7 @@
             "part": "吃2",
             "size_base": "M",
             "error": 3,
-            "size_base_value": null
+            "size_base_value": 12
           }, {
             "metering_type": "吃2",
             "cList": [ {
@@ -271,7 +281,7 @@
             "part": "吃2",
             "size_base": "M",
             "error": 3,
-            "size_base_value": null
+            "size_base_value": 13
           }, {
             "metering_type": "吃2",
             "cList": [ {
@@ -302,17 +312,17 @@
             "part": "吃2",
             "size_base": "M",
             "error": 3,
-            "size_base_value": null
+            "size_base_value": 14
           } ],
           "errParam": null,
           "failed": false,
           "success": true
         }
-        renderTable(data.item);
         renderSizecheckboxs(data);
+        renderTable(data.item);
       }
     });
-  }
+  }``
 
   // 比较两个尺码位置的先后顺序
   function compareElement(obj) {
@@ -510,18 +520,11 @@
 
     renderTable(formatSubmitList);
 
-    // 改变所有的尺码
-    // 按每行的维度获取所有的跳码框并设置尺码
-    var $sizeItems = $('#size-update-table .size-item');
-    for (var i = 0; i < $sizeItems.length; i++) {
-      var $JumpCode = $($sizeItems[i]).find('.jump-code');
-      setItemSize($JumpCode);
-    }
-
   });
 
   // 点击按钮打开弹框事件
   $('.bom-update-btn').click(function () {
+    // 这里加判断条件....
     fetchTableData();
     $('#sizeUpdateModal').modal('show')
   });
