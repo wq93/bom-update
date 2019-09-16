@@ -88,11 +88,11 @@
         var isBasicSizeCode = cListItem.cm === basicSizeCode;
         // 最后一个不需要跳码列
         if (j === trItemCList.length - 1) {
-          tbodyHtml += ` <td class="${ isBasicSizeCode ? 'basic-size-td' : '' }" data-last-cm="${ cListItem.cm }">${ isBasicSizeCode ? (trItem.size_base_value || 0) : (cListItem.value || 0) }</td>`
+          tbodyHtml += ` <td class="${ isBasicSizeCode ? 'basic-size-td' : '' }" data-id="${ cListItem.id }" data-last-cm="${ cListItem.cm }">${ isBasicSizeCode ? (trItem.size_base_value || 0) : (cListItem.value || 0) }</td>`
         } else {
           tbodyHtml += ` <td class="${ isBasicSizeCode ? 'basic-size-td' : '' }">${ isBasicSizeCode ? (trItem.size_base_value || 0) : (cListItem.value || 0) }</td>
               <td>
-                <input type="number" step="0.01" value="${ cListItem.tm }" name="" class='w60 jump-code' data-index="${ i }" data-size="${ cListItem.cm }">
+                <input type="number" step="0.01" value="${ cListItem.tm }" name="" class='w60 jump-code' data-index="${ i }" data-id="${ cListItem.id }" data-size="${ cListItem.cm }">
               </td>`
         }
       }
@@ -115,7 +115,7 @@
     // 按每行的维度获取所有的跳码框并设置尺码
     var $sizeItems = $('#size-update-table .size-item');
     for (var i = 0; i < $sizeItems.length; i++) {
-      var $JumpCode = $($sizeItems[i]).find('.jump-code');
+      var $JumpCode = $($sizeItems[ i ]).find('.jump-code');
       setItemSize($JumpCode);
     }
   }
@@ -175,6 +175,7 @@
           'px': j,
           'tm': $cListItem.val(),
           'cm': $cListItem.attr('data-size'),
+          'id': $cListItem.attr('data-id'),
           'value': $cListItem.parents('td').prev('td').html() || 0 // 尺码计算值
         }
         cListData.push(cListItemData)
@@ -184,6 +185,7 @@
           cListItemData = {
             'px': j + 1,
             'tm': 0,
+            'id': $(lastTr).attr('data-id'),
             'cm': $(lastTr).attr('data-last-cm'),
             'value': $(lastTr).html() // 尺码计算值
           }
@@ -202,6 +204,7 @@
       }
       submitData.push(trItemData)
     }
+    console.log(submitData, 'submitData');
     return submitData;
   }
 
@@ -221,99 +224,117 @@
           "desc": "OK",
           "item": [
             {
-            "metering_type": "吃2",
-            "cList": [ {
-              "px": 0,
-              "tm": 2,
-              "cm": "XS"
+              "metering_type": "吃2",
+              "cList": [ {
+                "px": 0,
+                "tm": 2,
+                "cm": "XS",
+                'id': 101,
+              }, {
+                "px": 1,
+                "tm": 2,
+                "cm": "S",
+                'id': 102,
+              }, {
+                "px": 2,
+                "tm": 2,
+                "cm": "M",
+                'id': 103,
+              }, {
+                "px": 3,
+                "tm": 2,
+                "cm": "L",
+                'id': 104,
+              }, {
+                "px": 4,
+                "tm": 2,
+                "cm": "XL",
+                'id': 105,
+              }, {
+                "px": 5,
+                "tm": 0,
+                "cm": "XXL",
+                'id': 106,
+              } ],
+              "part": "吃2",
+              "size_base": "M",
+              "error": 3,
+              "size_base_value": 12
             }, {
-              "px": 1,
-              "tm": 2,
-              "cm": "S"
+              "metering_type": "吃2",
+              "cList": [ {
+                "px": 0,
+                "tm": 2,
+                "cm": "XS",
+                'id': 201,
+              }, {
+                "px": 1,
+                "tm": 2,
+                "cm": "S",
+                'id': 202,
+              }, {
+                "px": 2,
+                "tm": 2,
+                "cm": "M",
+                'id': 203,
+              }, {
+                "px": 3,
+                "tm": 2,
+                "cm": "L",
+                'id': 204,
+              }, {
+                "px": 4,
+                "tm": 2,
+                "cm": "XL",
+                'id': 205,
+              }, {
+                "px": 5,
+                "tm": 0,
+                "cm": "XXL",
+                'id': 206,
+              } ],
+              "part": "吃2",
+              "size_base": "M",
+              "error": 3,
+              "size_base_value": 13
             }, {
-              "px": 2,
-              "tm": 2,
-              "cm": "M"
-            }, {
-              "px": 3,
-              "tm": 2,
-              "cm": "L"
-            }, {
-              "px": 4,
-              "tm": 2,
-              "cm": "XL"
-            }, {
-              "px": 5,
-              "tm": 0,
-              "cm": "XXL"
+              "metering_type": "吃2",
+              "cList": [ {
+                "px": 0,
+                "tm": 2,
+                "cm": "XS",
+                'id': 301,
+              }, {
+                "px": 1,
+                "tm": 2,
+                "cm": "S",
+                'id': 302,
+              }, {
+                "px": 2,
+                "tm": 2,
+                "cm": "M",
+                'id': 303,
+              }, {
+                "px": 3,
+                "tm": 2,
+                "cm": "L",
+                'id': 304,
+              }, {
+                "px": 4,
+                "tm": 2,
+                "cm": "XL",
+                'id': 305,
+              }, {
+                "px": 5,
+                "tm": 0,
+                "cm": "XXL",
+                'id': 306,
+              } ],
+              "part": "吃2",
+              "size_base": "M",
+              "error": 3,
+              "size_base_value": 14
             } ],
-            "part": "吃2",
-            "size_base": "M",
-            "error": 3,
-            "size_base_value": 12
-          }, {
-            "metering_type": "吃2",
-            "cList": [ {
-              "px": 0,
-              "tm": 2,
-              "cm": "XS"
-            }, {
-              "px": 1,
-              "tm": 2,
-              "cm": "S"
-            }, {
-              "px": 2,
-              "tm": 2,
-              "cm": "M"
-            }, {
-              "px": 3,
-              "tm": 2,
-              "cm": "L"
-            }, {
-              "px": 4,
-              "tm": 2,
-              "cm": "XL"
-            }, {
-              "px": 5,
-              "tm": 0,
-              "cm": "XXL"
-            } ],
-            "part": "吃2",
-            "size_base": "M",
-            "error": 3,
-            "size_base_value": 13
-          }, {
-            "metering_type": "吃2",
-            "cList": [ {
-              "px": 0,
-              "tm": 2,
-              "cm": "XS"
-            }, {
-              "px": 1,
-              "tm": 2,
-              "cm": "S"
-            }, {
-              "px": 2,
-              "tm": 2,
-              "cm": "M"
-            }, {
-              "px": 3,
-              "tm": 2,
-              "cm": "L"
-            }, {
-              "px": 4,
-              "tm": 2,
-              "cm": "XL"
-            }, {
-              "px": 5,
-              "tm": 0,
-              "cm": "XXL"
-            } ],
-            "part": "吃2",
-            "size_base": "M",
-            "error": 3,
-            "size_base_value": 14
-          } ],
           "errParam": null,
           "failed": false,
           "success": true
@@ -322,7 +343,7 @@
         renderTable(data.item);
       }
     });
-  }``
+  }
 
   // 比较两个尺码位置的先后顺序
   function compareElement(obj) {
@@ -353,11 +374,11 @@
   // 按属性对object分类
   function groupBy(objectArray, property) {
     return objectArray.reduce(function (acc, obj) {
-      var key = obj[property];
-      if (!acc[key]) {
-        acc[key] = [];
+      var key = obj[ property ];
+      if (!acc[ key ]) {
+        acc[ key ] = [];
       }
-      acc[key].push(obj);
+      acc[ key ].push(obj);
       return acc;
     }, {});
   }
@@ -378,7 +399,7 @@
       // 按每行的维度获取所有的跳码框并设置尺码
       var $sizeItems = $('#size-update-table .size-item');
       for (var i = 0; i < $sizeItems.length; i++) {
-        var $JumpCode = $($sizeItems[i]).find('.jump-code');
+        var $JumpCode = $($sizeItems[ i ]).find('.jump-code');
         setItemSize($JumpCode);
       }
     }
@@ -402,7 +423,7 @@
       // 按每行的维度获取所有的跳码框并设置尺码
       var $sizeItems = $('#size-update-table .size-item');
       for (var i = 0; i < $sizeItems.length; i++) {
-        var $JumpCode = $($sizeItems[i]).find('.jump-code');
+        var $JumpCode = $($sizeItems[ i ]).find('.jump-code');
         setItemSize($JumpCode);
       }
 
@@ -509,11 +530,11 @@
 
       // 从之前记录中取出对应的基码和跳码
       item.cList = $.map(checkSizeList, (cItem, index) => {
-        if(cacheMap[cItem]){
-          var cacheCItem = cacheMap[cItem][0];
-          return { px: index, tm: cacheCItem.tm, cm: cItem, value: cacheCItem.value };
-        }else{
-          return { px: index, tm: 0, cm: cItem, value: 0 };
+        if (cacheMap[ cItem ]) {
+          var cacheCItem = cacheMap[ cItem ][ 0 ];
+          return { px: index, tm: cacheCItem.tm, cm: cItem, id: cacheCItem.id, value: cacheCItem.value };
+        } else {
+          return { px: index, tm: 0, cm: cItem, id: '', value: 0 };
         }
       })
     })

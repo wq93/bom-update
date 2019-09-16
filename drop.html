@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Drop</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .drop-wrapper {
+      display: flex;
+      padding: 20px;
+    }
+
+    .left,
+    .right {
+      padding: 2px;
+      height: 200px;
+      overflow: auto;
+      min-width: 150px;
+      border: 1px solid #f2f2f2;
+    }
+
+    li {
+      padding: 8px 22px;
+      list-style-type: none;
+      cursor: pointer;
+      background: aquamarine;
+    }
+
+    .left li:not(:last-child),
+    .right li:not(:last-child) {
+      border-bottom: 1px solid #ccc;
+    }
+
+  </style>
+</head>
+<body>
+<div class="drop-wrapper">
+  <div class="left" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <ul>
+      <li draggable="true" ondragstart="drag(event)" class='li-1'>1</li>
+      <li draggable="true" ondragstart="drag(event)" class='li-2'>2</li>
+      <li draggable="true" ondragstart="drag(event)" class='li-3'>3</li>
+      <li draggable="true" ondragstart="drag(event)" class='li-4'>4</li>
+      <li draggable="true" ondragstart="drag(event)" class='li-5'>5</li>
+      <li draggable="true" ondragstart="drag(event)" class='li-6'>6</li>
+      <li draggable="true" ondragstart="drag(event)" class='li-7'>7</li>
+      <li draggable="true" ondragstart="drag(event)" class='li-8'>8</li>
+      <li draggable="true" ondragstart="drag(event)" class='li-9'>9</li>
+      <li draggable="true" ondragstart="drag(event)" class='li-10'>0</li>
+    </ul>
+  </div>
+  <div class="right" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+</div>
+<script>
+  function allowDrop(ev) {
+    ev.preventDefault();
+  }
+
+  function drag(ev) {
+    console.log(ev.target.className);
+    ev.dataTransfer.setData("Text", ev.target.className);
+  }
+
+  function drop(ev) {
+    ev.preventDefault();
+    console.log(ev, 'evevev');
+    var node = ev.dataTransfer.getData("Text");
+    ev.target.appendChild(document.getElementsByClassName(node)[0]);
+  }
+</script>
+</body>
+</html>

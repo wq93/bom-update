@@ -18,7 +18,7 @@
           </select>
         </td>
         <td>
-          <input type="text" class='displayName-input'>
+          <select class='displayName-input'></select>
           <select class='part-select'>
             <option value="">请选择使用部位</option>
             <option value="0">大身主布</option>
@@ -26,7 +26,8 @@
           </select>
         </td>
         <td>
-          <input type="text" class='supplier-input'>
+          <select class='supplier-input'>
+          </select>
         </td>
         <td> - </td>
         <td> - </td>
@@ -42,7 +43,7 @@
       </tr>`
 
   var removeDataList = []
-
+  $.fn.modal.Constructor.prototype.enforceFocus = function () { };
   // 点击编辑物料按钮弹窗事件
   $('.materials-update-btn').click(function () {
     fetchMaterialsData();
@@ -54,6 +55,9 @@
     $('#materials-tbody').html(initTbody);
     $('#materialsModalLabel').html('添加物料');
     $('#materialsModal').modal('show');
+
+    displayNameBindSelect();
+    supplierBindSelect();
   });
 
   // 点击提交事件
@@ -65,6 +69,8 @@
   // 点击添加一列事件
   $('.materials-add-tr').click(function () {
     $('#materials-tbody').append(initTbody);
+    displayNameBindSelect();
+    supplierBindSelect();
   })
 
   // 点击删除一行事件
@@ -94,7 +100,7 @@
       return {
         type: $tr.find('.type-select').val(),
         mark: $tr.find('.mark-select').val(),
-        displayName: $tr.find('.mark-select').val(),
+        displayName: $tr.find('.displayName-input').val(),
         part: $tr.find('.part-select').val(),
         supplier: $tr.find('.supplier-input').val(),
         dosage: $tr.find('.dosage-input').val(),
@@ -132,6 +138,97 @@
     ]
     // 渲染表单体
     renderTbody();
+
+    displayNameBindSelect();
+    supplierBindSelect();
+  }
+
+  // 供应商 绑定联想框
+  function displayNameBindSelect() {
+    $(".displayName-input").select2({
+      ajax: {
+        url: "https://hunter-test.erp.chicv.com/api/supplier/supplier/fuzzy",
+        dataType: 'json',
+        delay: 250,
+        data: function (params) {
+          console.log(params, 'params');
+          return {
+            queryParam: params.term, // search term
+            page: params.page
+          };
+        },
+        processResults: function (data) {
+          // Transforms the top-level key of the response object from 'items' to 'results'
+          return {
+            results: data.items
+          };
+        },
+        cache: true
+      },
+      placeholder: 'Search for a repository',
+      minimumInputLength: 1,
+      templateResult: formatRepo,
+      templateSelection: formatRepoSelection,
+
+    });
+    function formatRepo (repo) {
+      if (repo.loading) {
+        return repo.text;
+      }
+
+      var $container = $(
+        `<div class='select2-result-repository clearfix'>${repo.full_name}</div>`
+      );
+      return $container;
+    }
+
+    function formatRepoSelection (repo) {
+      return repo.full_name || repo.text;
+    }
+  }
+
+  // 物料名称 绑定联想框
+  function supplierBindSelect() {
+    $(".supplier-input").select2({
+      ajax: {
+        url: "https://api.github.com/search/repositories",
+        dataType: 'json',
+        delay: 250,
+        data: function (params) {
+          return {
+            q: params.term, // search term
+            page: params.page,
+          };
+        },
+        processResults: function (data) {
+          // Transforms the top-level key of the response object from 'items' to 'results'
+          return {
+            results: data.items
+          };
+        },
+        cache: true
+      },
+      placeholder: 'Search for a repository',
+      minimumInputLength: 1,
+      templateResult: formatRepo,
+      templateSelection: formatRepoSelection,
+
+    });
+    function formatRepo (repo) {
+      if (repo.loading) {
+        return repo.text;
+      }
+
+      var $container = $(
+        `<div class='select2-result-repository clearfix'>${repo.full_name}</div>`
+      );
+      return $container;
+    }
+
+    function formatRepoSelection (repo) {
+      console.log(repo, 'repo');
+      return repo.full_name || repo.text;
+    }
   }
 
   // 渲染表单体
@@ -153,7 +250,9 @@
           </select>
         </td>
         <td>
-          <input type="text" value="${ material.displayName }" class='displayName-input'>
+          <select class='displayName-input'>
+            <option value="${material.displayName}">${material.displayName}</option>
+          </select>
           <select class='part-select'>
             <option value="">请选择使用部位</option>
             <option value="0" ${ material.part == 0 ? 'selected' : '' }>大身主布</option>
@@ -161,7 +260,9 @@
           </select>
         </td>
         <td>
-          <input type="text" value="${ material.supplier }" class='supplier-input'>
+          <select class="supplier-input">
+            <option value="${material.supplier}">${material.supplier}</option>
+          </select>
         </td>
         <td>
           ${ material.attributes.map(function (attribute) {

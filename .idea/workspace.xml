@@ -2,7 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab8d7cf3-ae0d-4161-9c38-b708961d15d0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/drop.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/select2.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/select2.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bom-update.js" beforeDir="false" afterPath="$PROJECT_DIR$/bom-update.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/materials.css" beforeDir="false" afterPath="$PROJECT_DIR$/materials.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/materials.html" beforeDir="false" afterPath="$PROJECT_DIR$/materials.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/materials.js" beforeDir="false" afterPath="$PROJECT_DIR$/materials.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -14,14 +21,14 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.47140926">
+    <splitter split-orientation="horizontal" split-proportion="0.4461954">
       <split-first>
-        <leaf>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/bom.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="777">
-                  <caret line="110" column="78" lean-forward="true" selection-start-line="110" selection-start-column="66" selection-end-line="110" selection-end-column="78" />
+                <state relative-caret-position="2560">
+                  <caret line="110" column="78" selection-start-line="110" selection-start-column="66" selection-end-line="110" selection-end-column="78" />
                   <folding>
                     <element signature="n#div#1;n#body#0;n#html#0;n#!!top" />
                   </folding>
@@ -32,11 +39,11 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/materials.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1228">
-                  <caret line="100" column="6" lean-forward="true" selection-start-line="100" selection-start-column="6" selection-end-line="100" selection-end-column="6" />
+                <state relative-caret-position="466">
+                  <caret line="19" column="9" lean-forward="true" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
                   <folding>
-                    <element signature="n#div#0;n#body#0;n#html#0;n#!!top" />
-                    <element signature="n#button#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                    <element signature="e#1279#1286#0" expanded="true" />
+                    <element signature="e#2588#2595#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -45,18 +52,15 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="true">
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/bom-update.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="416">
-                  <caret line="108" column="9" lean-forward="true" selection-start-line="108" selection-start-column="9" selection-end-line="108" selection-end-column="9" />
+                <state relative-caret-position="-1802">
+                  <caret line="217" column="34" lean-forward="true" selection-start-line="217" selection-start-column="34" selection-end-line="217" selection-end-column="34" />
                   <folding>
                     <element signature="e#256#2546#0" />
-                    <element signature="e#2588#4325#0" />
-                    <element signature="n#style#0;n#p#0;n#td#0;n#!!top" expanded="true" />
-                    <element signature="e#5075#5711#0" />
-                    <element signature="e#5755#7313#0" />
+                    <element signature="e#2588#4515#0" />
                   </folding>
                 </state>
               </provider>
@@ -65,21 +69,19 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/materials.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1120">
-                  <caret line="35" column="22" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
+                <state relative-caret-position="995">
+                  <caret line="35" column="22" lean-forward="true" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/materials.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="41">
-                  <caret line="98" selection-start-line="98" selection-end-line="98" />
+                <state relative-caret-position="717">
+                  <caret line="199" column="30" selection-start-line="199" selection-start-column="30" selection-end-line="199" selection-end-column="30" />
                   <folding>
                     <element signature="n#tr#0;n#!!top" />
-                    <element signature="e#221#439#0" />
-                    <element signature="e#867#1947#0" />
                   </folding>
                 </state>
               </provider>
@@ -89,7 +91,7 @@
             <entry file="file://$PROJECT_DIR$/bom-remove.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="1088">
-                  <caret line="34" column="5" lean-forward="true" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+                  <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
                 </state>
               </provider>
             </entry>
@@ -108,13 +110,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>itemFir</find>
-      <find>get</find>
-      <find>data-cm</find>
-      <find>px</find>
-      <find>fetchTableData</find>
-      <find>table-header</find>
-      <find>size-checkboxs</find>
       <find>renderThead</find>
       <find>metering-type</find>
       <find>size-table-tbody</find>
@@ -124,7 +119,6 @@
       <find>up</find>
       <find>pattern-id</find>
       <find>set-all-jump-code</find>
-      <find>jump-code</find>
       <find>size-checkbox</find>
       <find>sync-mistake</find>
       <find>console</find>
@@ -137,7 +131,15 @@
       <find>size_base_value</find>
       <find>basic-size-td</find>
       <find>renderTbody</find>
+      <find>data-size</find>
+      <find>jump-code</find>
+      <find>groupBy</find>
+      <find>initTbody</find>
+      <find>supplierBindSelect</find>
+      <find>displayNameBindSelect</find>
+      <find>supplier-input</find>
       <find>renderTable</find>
+      <find>displayName-input</find>
     </findStrings>
     <replaceStrings>
       <replace>renderThead</replace>
@@ -145,6 +147,7 @@
       <replace>size-update-table-tbody</replace>
       <replace>size-update-table</replace>
       <replace>size-add-table</replace>
+      <replace>displayNameBindSelect</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -159,11 +162,14 @@
         <option value="$PROJECT_DIR$/bom-add.js" />
         <option value="$PROJECT_DIR$/bom.html" />
         <option value="$PROJECT_DIR$/bom.css" />
-        <option value="$PROJECT_DIR$/materials.css" />
         <option value="$PROJECT_DIR$/bom-remove.js" />
+        <option value="$PROJECT_DIR$/drop.html" />
+        <option value="$PROJECT_DIR$/bom-update.js" />
+        <option value="$PROJECT_DIR$/materials.css" />
+        <option value="$PROJECT_DIR$/select2.min.css" />
+        <option value="$PROJECT_DIR$/select2.min.js" />
         <option value="$PROJECT_DIR$/materials.html" />
         <option value="$PROJECT_DIR$/materials.js" />
-        <option value="$PROJECT_DIR$/bom-update.js" />
       </list>
     </option>
   </component>
@@ -231,12 +237,14 @@
       <option name="presentableId" value="Default" />
       <updated>1567752224925</updated>
       <workItem from="1567752226990" duration="10665000" />
-      <workItem from="1567857143446" duration="38263000" />
+      <workItem from="1567857143446" duration="45377000" />
+      <workItem from="1568273405524" duration="2663000" />
+      <workItem from="1568599025769" duration="9880000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48928000" />
+    <option name="totallyTimeSpent" value="68585000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-421" y="-1440" width="2560" height="1440" extended-state="0" />
@@ -279,63 +287,82 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/materials.css">
+    <entry file="file://$PROJECT_DIR$/drop.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1120">
-          <caret line="35" column="22" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bom-remove.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1088">
-          <caret line="34" column="5" lean-forward="true" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+        <state relative-caret-position="617">
+          <caret line="63" column="3" lean-forward="true" selection-start-line="63" selection-start-column="3" selection-end-line="63" selection-end-column="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bom.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="777">
-          <caret line="110" column="78" lean-forward="true" selection-start-line="110" selection-start-column="66" selection-end-line="110" selection-end-column="78" />
+        <state relative-caret-position="2560">
+          <caret line="110" column="78" selection-start-line="110" selection-start-column="66" selection-end-line="110" selection-end-column="78" />
           <folding>
             <element signature="n#div#1;n#body#0;n#html#0;n#!!top" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/materials.js">
+    <entry file="file://$PROJECT_DIR$/bom-remove.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="41">
-          <caret line="98" selection-start-line="98" selection-end-line="98" />
+        <state relative-caret-position="1088">
+          <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/materials.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="995">
+          <caret line="35" column="22" lean-forward="true" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bom-update.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1802">
+          <caret line="217" column="34" lean-forward="true" selection-start-line="217" selection-start-column="34" selection-end-line="217" selection-end-column="34" />
           <folding>
-            <element signature="n#tr#0;n#!!top" />
-            <element signature="e#221#439#0" />
-            <element signature="e#867#1947#0" />
+            <element signature="e#256#2546#0" />
+            <element signature="e#2588#4515#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/select2.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret column="12472" selection-start-column="12472" selection-end-column="12472" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/select2.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1625">
+          <caret line="1" column="68881" selection-start-line="1" selection-start-column="68881" selection-end-line="1" selection-end-column="68881" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/materials.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1228">
-          <caret line="100" column="6" lean-forward="true" selection-start-line="100" selection-start-column="6" selection-end-line="100" selection-end-column="6" />
+        <state relative-caret-position="466">
+          <caret line="19" column="9" lean-forward="true" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
           <folding>
-            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#button#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="e#1279#1286#0" expanded="true" />
+            <element signature="e#2588#2595#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bom-update.js">
+    <entry file="file://$PROJECT_DIR$/materials.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="108" column="9" lean-forward="true" selection-start-line="108" selection-start-column="9" selection-end-line="108" selection-end-column="9" />
+        <state relative-caret-position="717">
+          <caret line="199" column="30" selection-start-line="199" selection-start-column="30" selection-end-line="199" selection-end-column="30" />
           <folding>
-            <element signature="e#256#2546#0" />
-            <element signature="e#2588#4325#0" />
-            <element signature="n#style#0;n#p#0;n#td#0;n#!!top" expanded="true" />
-            <element signature="e#5075#5711#0" />
-            <element signature="e#5755#7313#0" />
+            <element signature="n#tr#0;n#!!top" />
           </folding>
         </state>
       </provider>
